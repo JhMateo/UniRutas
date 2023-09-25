@@ -4,12 +4,12 @@ import java.util.List;
 public class Bus {
     private int capacidad;
     private String placa;
-    private List<Conductor> listadoConductor;
+    private List<Conductor> conductores;
 
     public Bus(int capacidad, String placa) {
         this.capacidad = capacidad;
         this.placa = placa;
-        this.listadoConductor = new ArrayList<>();
+        this.conductores = new ArrayList<>();
     }
 
     public int getCapacidad() {
@@ -21,6 +21,14 @@ public class Bus {
     }
 
     public void asignarConductor(Conductor conductor) {
-        listadoConductor.add(conductor);
+        conductores.add(conductor);
+    }
+
+    public void removerConductor(Conductor conductor) {
+        conductores.remove(conductor);
+    }
+
+    public List<Conductor> getConductores() {
+        return conductores;
     }
 }

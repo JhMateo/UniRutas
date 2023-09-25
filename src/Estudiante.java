@@ -1,12 +1,22 @@
-public class Estudiante extends Usuario{
-    public Estudiante(String nombre, int codigo, String nombreUsuario, String contrasena) {
-        super(nombre, codigo, nombreUsuario, contrasena);
+import java.util.List;
+
+public class Estudiante extends Usuario {
+    private List<Servicio> suscripciones;
+
+    public Estudiante(String nombreUsuario, String contrasena) {
+        super(nombreUsuario, contrasena);
     }
+
+    public void suscribirAServicio(Servicio servicio) {
+        suscripciones.add(servicio);
+    }
+
     @Override
     public void marcarAlertaLeida(Alerta alerta) {
+        super.marcarAlertaLeida(alerta);
         System.out.println("El estudiante " + getNombreUsuario() + " ha marcado la alerta como leída. ");
+        // Lógica específica para el estudiante
     }
-    public void suscribirARuta(Ruta ruta){
-        // TODO: code here
-    }
+
+    // Otros métodos y propiedades específicos de Estudiante
 }
