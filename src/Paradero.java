@@ -30,6 +30,7 @@ public class Paradero {
         this.tramoSiguiente = tramo;
     }
 
+    // TODO: Se deja o no?
     public List<Double> getCoordenada() {
         return this.coordenada.getCoordenada();
     }

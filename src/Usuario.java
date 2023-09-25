@@ -5,7 +5,8 @@ public abstract class Usuario extends Persona {
     private String contrasena;
     private List<Alerta> alertasLeidas;
 
-    public Usuario(String nombreUsuario, String contrasena) {
+    public Usuario(String nombre, int codigo, String nombreUsuario, String contrasena){
+        super(nombre, codigo);
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
     }
@@ -18,10 +19,11 @@ public abstract class Usuario extends Persona {
         return contrasena;
     }
 
-    public boolean cambiarContrasena(String nuevaContrasena){
+    public boolean cambiarContrasena(String nuevaContrasena) {
         this.contrasena = nuevaContrasena;
         return true;
-
+    }
+    
     public void marcarAlertaLeida(Alerta alerta) {
         alertasLeidas.add(alerta);
     }
