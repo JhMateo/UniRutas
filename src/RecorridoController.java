@@ -1,39 +1,37 @@
-import java.sql.SQLException;
 import java.util.List;
 
+
+// TODO: Implementar la lógica para añadirlo en la DB
 public class RecorridoController {
     private Recorrido recorrido;
-    public void agregarParadero(Paradero paradero, DatabaseManager dbManager) throws SQLException {
+    public void agregarParadero(Paradero paradero) {
         recorrido.agregarParadero(paradero);
     }
 
     public void eliminarParadero(Paradero paradero){
-        // TODO:
-    }
-
-    public void modificarParadero(Paradero paradero){
-        // TODO:
+        recorrido.removerParadero(paradero);
     }
 
     public void asignarParaderos(List<Paradero> paraderos){
-        // TODO:
+        recorrido.setListadoParaderos(paraderos);
     }
 
     public void crearTramo(List<Coordenada> coordenadas){
-        // TODO: Implementa la lógica para crear un tramo con las coordenadas proporcionadas
         Tramo tramo = new Tramo(coordenadas);
         recorrido.agregarTramo(tramo);
     }
 
     public void eliminarTramo(Tramo tramo){
-        // TODO:
+        recorrido.removerTramo(tramo);
     }
 
     public void asignarTramos(List<Tramo> tramos){
-        // TODO:
+        recorrido.setListadoTramos(tramos);
     }
 
     public void eliminarTramos(List<Tramo> tramos){
-        // TODO:
+        for (Tramo tramo : tramos) {
+            recorrido.removerTramo(tramo);
+        }
     }
 }

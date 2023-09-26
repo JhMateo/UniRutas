@@ -1,17 +1,16 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Usuario extends Persona {
     private String nombreUsuario;
     private String contrasena;
-    private List<Alerta> alertasLeidas;
+    private List<Alerta> alertasNoLeidas;
 
     public Usuario(String nombre, String codigo, String nombreUsuario, String contrasena){
         super(nombre, codigo);
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
-        this.alertasLeidas = new ArrayList<>();
+        this.alertasNoLeidas = new ArrayList<>();
     }
 
     public String getNombreUsuario() {
@@ -27,8 +26,16 @@ public abstract class Usuario extends Persona {
         return true;
     }
 
+    public void recibirAlerta(Alerta alerta) {
+        alertasNoLeidas.add(alerta); // Agrega la alerta a la lista de alertas no leídas
+    }
+
+    public List<Alerta> obtenerAlertasNoLeidas() {
+        return alertasNoLeidas;
+    }
+
     public void marcarAlertaLeida(Alerta alerta) {
-        alertasLeidas.add(alerta);
+        alertasNoLeidas.remove(alerta);
     }
 }
 

@@ -10,4 +10,8 @@ public class Estudiante extends Usuario {
     public void suscribirAServicio(Servicio servicio) {
         suscripciones.add(servicio);
     }
+
+    public boolean estaSuscrito(Servicio servicio) {
+        return suscripciones.contains(servicio);
+    }
 }

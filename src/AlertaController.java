@@ -1,15 +1,19 @@
+import java.util.List;
+
 public class AlertaController {
-    public void notificarAlerta(Alerta alerta) {
-        // TODO:
-        boolean enviado = alerta.enviarAlerta();
-        if (enviado) {
-            System.out.println("Alerta notificada a los usuarios de la ruta.");
-        } else {
-            System.out.println("Error al notificar la alerta.");
-        }
+    public void notificarAlerta(Alerta alerta, List<Usuario> usuarios) {
+        // Llama al método enviarAlerta de la alerta para notificar a los usuarios
+        alerta.enviarAlerta(usuarios);
+        System.out.println("Alerta notificada a los usuarios.");
     }
 
-    public void listarAlertas(Alerta alerta){
-        // TODO:
+    public void listarAlertas(List<Alerta> alertas) {
+        System.out.println("Lista de Alertas:");
+        for (Alerta alerta : alertas) {
+            System.out.println("Fecha: " + alerta.getFecha());
+            System.out.println("Descripción: " + alerta.getDescripcion());
+            System.out.println("Servicio: " + alerta.getServicio());
+            System.out.println("------------------------");
+        }
     }
 }
