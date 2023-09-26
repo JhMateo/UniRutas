@@ -18,17 +18,10 @@ public class Alerta {
     }
 
     public boolean enviarAlerta() {
+        // TODO:
         // Aquí implementa la lógica para enviar la alerta
         // Puedes retornar true si se envió con éxito o false si no se pudo enviar.
         System.out.println("Alerta enviada: " + this.descripcion);
         return true; // Cambia esto según la implementación real.
     }
 }
-
-
-
-
-
-
-
-

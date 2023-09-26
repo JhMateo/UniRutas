@@ -16,5 +16,4 @@ public class Coordenada {
         coordenadas.add(this.longitud);
         return coordenadas;
     }
-
 }

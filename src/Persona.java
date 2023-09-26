@@ -2,9 +2,9 @@ import java.util.List;
 
 public class Persona {
     private String nombre;
-    private int codigo;
+    private String codigo;
 
-    public Persona(String nombre, int codigo) {
+    public Persona(String nombre, String codigo) {
         this.nombre = nombre;
         this.codigo = codigo;
     }
@@ -13,7 +13,7 @@ public class Persona {
         return nombre;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -21,7 +21,7 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 

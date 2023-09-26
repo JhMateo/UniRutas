@@ -20,15 +20,15 @@ public class Bus {
         return placa;
     }
 
+    public List<Conductor> getConductores() {
+        return conductores;
+    }
+
     public void asignarConductor(Conductor conductor) {
         conductores.add(conductor);
     }
 
     public void removerConductor(Conductor conductor) {
         conductores.remove(conductor);
-    }
-
-    public List<Conductor> getConductores() {
-        return conductores;
     }
 }
