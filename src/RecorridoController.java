@@ -1,8 +1,10 @@
+import java.sql.SQLException;
 import java.util.List;
 
 public class RecorridoController {
-    public void agregarParadero(Paradero paradero) {
-        // TODO:
+    private Recorrido recorrido;
+    public void agregarParadero(Paradero paradero, DatabaseManager dbManager) throws SQLException {
+        recorrido.agregarParadero(paradero);
     }
 
     public void eliminarParadero(Paradero paradero){
@@ -18,7 +20,9 @@ public class RecorridoController {
     }
 
     public void crearTramo(List<Coordenada> coordenadas){
-        // TODO:
+        // TODO: Implementa la lógica para crear un tramo con las coordenadas proporcionadas
+        Tramo tramo = new Tramo(coordenadas);
+        recorrido.agregarTramo(tramo);
     }
 
     public void eliminarTramo(Tramo tramo){
@@ -26,10 +30,10 @@ public class RecorridoController {
     }
 
     public void asignarTramos(List<Tramo> tramos){
-
+        // TODO:
     }
 
     public void eliminarTramos(List<Tramo> tramos){
-
+        // TODO:
     }
 }

@@ -3,7 +3,7 @@ import java.util.List;
 public class Estudiante extends Usuario {
     private List<Servicio> suscripciones;
 
-    public Estudiante(String nombre, int codigo, String nombreUsuario, String contrasena){
+    public Estudiante(String nombre, String codigo, String nombreUsuario, String contrasena){
         super(nombre, codigo, nombreUsuario, contrasena);
     }
 

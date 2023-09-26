@@ -25,11 +25,3 @@ public class Alerta {
         return true; // Cambia esto según la implementación real.
     }
 }
-
-
-
-
-
-
-
-

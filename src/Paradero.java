@@ -32,6 +32,6 @@ public class Paradero {
 
     // TODO: Se deja o no?
     public List<Double> getCoordenada() {
-        return this.coordenada.getCoordenada();
+        return coordenada.getCoordenada();
     }
 }

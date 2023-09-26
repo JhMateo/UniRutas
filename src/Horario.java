@@ -1,11 +1,13 @@
-public class Horario {
-    private String hora;
+import java.time.LocalTime;
 
-    public Horario(String hora) {
+public class Horario {
+    private LocalTime hora;
+
+    public Horario(LocalTime hora) {
         this.hora = hora;
     }
 
-    public String getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 }
