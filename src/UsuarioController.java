@@ -3,7 +3,7 @@ import java.sql.SQLException;
 
 public class UsuarioController {
     public void marcarAlerta(Alerta alerta, Usuario usuario) {
-        // Revisar
+        // TODO: Implementar la lógica para añadirlo en la DB
         if (usuario != null) {
             usuario.marcarAlertaLeida(alerta);
             System.out.println("Alerta marcada como leída por el usuario: " + usuario.getNombre());
@@ -13,7 +13,7 @@ public class UsuarioController {
     }
 
     public void suscribirServicio(Estudiante estudiante, Servicio servicio) {
-        // TODO: Implementa la lógica para que un estudiante se suscriba a un servicio
+        // TODO: Implementar la lógica para añadirlo en la DB
         if (estudiante != null && servicio != null) {
             estudiante.suscribirAServicio(servicio);
             System.out.println(estudiante.getNombre() + " se ha suscrito al servicio " + servicio);
@@ -26,26 +26,42 @@ public class UsuarioController {
         try {
             dbManager.startTransaction();
 
-            String tableName = (usuario instanceof Estudiante) ? "Student" : "Administrative";
+            if (usuario instanceof Estudiante) {
+                Estudiante estudiante = (Estudiante) usuario;
+                if (existeEstudiante(estudiante, dbManager)) {
+                    System.out.println("El estudiante ya existe en la base de datos.");
+                    return; // No se realiza la inserción si ya existe
+                }
 
-            // Verificar si el usuario ya existe
-            String checkExistenceSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE code = ?";
-            ResultSet userExist = dbManager.executeQuery(checkExistenceSQL, usuario.getCodigo());
-
-            if (userExist.next()) {
-                System.out.println(usuario.getClass().getSimpleName() + " con código " + usuario.getCodigo() + " ya existe en la base de datos.");
-            } else {
-                // Si no existe, proceder con la inserción
-                String insertSQL = "INSERT INTO " + tableName + " (code, name, username, password) VALUES (?, ?, ?, ?)";
-                int rowsAffected = dbManager.executeUpdate(insertSQL, usuario.getCodigo(), usuario.getNombre(), usuario.getNombreUsuario(), usuario.getContrasena());
+                String insertSQL = "INSERT INTO Student (code, name, username, password) VALUES (?, ?, ?, ?)";
+                int rowsAffected = dbManager.executeUpdate(insertSQL, estudiante.getCodigo(), estudiante.getNombre(), estudiante.getNombreUsuario(), estudiante.getContrasena());
 
                 if (rowsAffected > 0) {
                     dbManager.commitTransaction();
-                    System.out.println(usuario.getClass().getSimpleName() + " creado exitosamente.");
+                    System.out.println("Estudiante creado exitosamente.");
                 } else {
                     dbManager.rollbackTransaction();
-                    System.out.println("La creación de " + usuario.getClass().getSimpleName() + " falló.");
+                    System.out.println("La creación del estudiante falló.");
                 }
+            } else if (usuario instanceof Administrativo) {
+                Administrativo administrativo = (Administrativo) usuario;
+                if (existeAdministrativo(administrativo, dbManager)) {
+                    System.out.println("El administrativo ya existe en la base de datos.");
+                    return; // No se realiza la inserción si ya existe
+                }
+
+                String insertSQL = "INSERT INTO Administrative (code, name, username, password) VALUES (?, ?, ?, ?)";
+                int rowsAffected = dbManager.executeUpdate(insertSQL, administrativo.getCodigo(), administrativo.getNombre(), administrativo.getNombreUsuario(), administrativo.getContrasena());
+
+                if (rowsAffected > 0) {
+                    dbManager.commitTransaction();
+                    System.out.println("Administrativo creado exitosamente.");
+                } else {
+                    dbManager.rollbackTransaction();
+                    System.out.println("La creación del administrativo falló.");
+                }
+            } else {
+                // Manejar otros tipos de usuarios aquí si es necesario
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,6 +125,17 @@ public class UsuarioController {
         }
     }
 
+    private boolean existeEstudiante(Estudiante estudiante, DatabaseManager dbManager) throws SQLException {
+        String selectSQL = "SELECT * FROM Student WHERE username = ?";
+        ResultSet resultSet = dbManager.executeQuery(selectSQL, estudiante.getNombreUsuario());
+        return resultSet.next();
+    }
+
+    private boolean existeAdministrativo(Administrativo administrativo, DatabaseManager dbManager) throws SQLException {
+        String selectSQL = "SELECT * FROM Administrative WHERE username = ?";
+        ResultSet resultSet = dbManager.executeQuery(selectSQL, administrativo.getNombreUsuario());
+        return resultSet.next();
+    }
 
 }
 

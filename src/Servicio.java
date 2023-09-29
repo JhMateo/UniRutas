@@ -4,12 +4,14 @@ import java.util.List;
 public class Servicio {
     private List<Horario> listadoHorarios;
     private List<Bus> listadoBuses;
+    private List<Alerta> listadoAlertas;
     private Ruta ruta;
     private Sentido sentido;
 
     public Servicio(Ruta ruta, Sentido sentido){
         this.listadoHorarios = new ArrayList<>();
         this.listadoBuses = new ArrayList<>();
+        this.listadoAlertas = new ArrayList<>();
         this.ruta = ruta;
         this.sentido = sentido;
     }
@@ -23,8 +25,7 @@ public class Servicio {
     }
 
     public List<Alerta> getAlertas(){
-        // TODO:
-        return null;
+        return this.listadoAlertas;
     }
 
     public void añadirBus(Bus bus) {
@@ -36,7 +37,7 @@ public class Servicio {
     }
 
     public void añadirAlerta(Alerta alerta) {
-        // TODO:
+        listadoAlertas.add(alerta);
     }
 
     public void removerBus(Bus bus) {
@@ -48,6 +49,6 @@ public class Servicio {
     }
 
     public void removerAlerta(Alerta alerta) {
-        // TODO:
+        listadoAlertas.remove(alerta);
     }
 }

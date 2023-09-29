@@ -10,6 +10,24 @@ public class Recorrido {
         this.listadoTramos = listadoTramos;
     }
 
+
+    public List<Paradero> getListadoParaderos() {
+        return listadoParaderos;
+    }
+
+    public void setListadoParaderos(List<Paradero> listadoParaderos) {
+        this.listadoParaderos = listadoParaderos;
+    }
+
+    public List<Tramo> getListadoTramos() {
+        return listadoTramos;
+    }
+
+    public void setListadoTramos(List<Tramo> listadoTramos) {
+        this.listadoTramos = listadoTramos;
+    }
+
+
     public void agregarParadero(Paradero paradero) {
         listadoParaderos.add(paradero);
     }

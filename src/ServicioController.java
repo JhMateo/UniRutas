@@ -5,7 +5,6 @@ public class ServicioController {
     public ServicioController(Ruta ruta, Sentido sentido) {
         servicio = new Servicio(ruta, sentido);
     }
-    // TODO: Resolver errores :v
     public void asignarHorario(Horario horario) {
         this.servicio.añadirHorario(horario);
     }
@@ -31,10 +30,10 @@ public class ServicioController {
     }
 
     public void añadirServicio(Servicio servicio) {
-        // TODO:
+        // TODO: Implementar la lógica para añadirlo en la DB
     }
 
     public void eliminarServicio(Servicio servicio) {
-        // TODO:
+        // TODO: Implementar la lógica para añadirlo en la DB
     }
 }

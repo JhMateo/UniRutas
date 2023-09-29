@@ -25,6 +25,5 @@ public class Persona {
         this.codigo = codigo;
     }
 
-    // Otras operaciones y métodos relevantes para Persona según sus relaciones en el diagrama
 }
 
