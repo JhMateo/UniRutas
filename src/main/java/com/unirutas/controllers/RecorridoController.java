@@ -1,3 +1,10 @@
+package main.java.com.unirutas.controllers;
+
+import main.java.com.unirutas.models.Coordenada;
+import main.java.com.unirutas.models.Paradero;
+import main.java.com.unirutas.models.Recorrido;
+import main.java.com.unirutas.models.Tramo;
+
 import java.util.List;
 
 

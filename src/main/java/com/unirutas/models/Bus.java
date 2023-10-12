@@ -1,3 +1,5 @@
+package main.java.com.unirutas.models;
+
 import java.util.ArrayList;
 import java.util.List;
 

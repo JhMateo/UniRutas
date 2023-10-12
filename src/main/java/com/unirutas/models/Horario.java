@@ -1,3 +1,5 @@
+package main.java.com.unirutas.models;
+
 import java.time.LocalTime;
 
 public class Horario {

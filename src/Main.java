@@ -1,8 +1,14 @@
+import main.java.com.unirutas.controllers.BusController;
+import main.java.com.unirutas.controllers.RecorridoController;
+import main.java.com.unirutas.controllers.ServicioController;
+import main.java.com.unirutas.controllers.UsuarioController;
+import main.java.com.unirutas.database.DatabaseManager;
+import main.java.com.unirutas.models.*;
+
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -64,12 +70,12 @@ public class Main {
             usuarioController.actualizarUsuario(estudiante, dbManager);
 
             // Transacción incorrecta
-            estudiante.cambiarContrasena(null);
+            estudiante.cambiarContrasena("null");
             usuarioController.actualizarUsuario(estudiante, dbManager);
 
             // Actualizar un administrativo (por ejemplo, cambiar su nombre de usuario)
-            administrativo.cambiarContrasena("999");
-            usuarioController.actualizarUsuario(administrativo, dbManager);
+            // administrativo.cambiarContrasena("999");
+            // usuarioController.actualizarUsuario(administrativo, dbManager);
 
             // Eliminar un estudiante
             // usuarioController.eliminarUsuario(estudiante, dbManager);
