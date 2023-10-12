@@ -1,3 +1,5 @@
+package main.java.com.unirutas.models;
+
 public class Ruta {
     private String nombre;
     private Recorrido recorrido;

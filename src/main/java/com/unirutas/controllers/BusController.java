@@ -1,3 +1,8 @@
+package main.java.com.unirutas.controllers;
+
+import main.java.com.unirutas.models.Bus;
+import main.java.com.unirutas.models.Conductor;
+
 public class BusController {
 
     public void agregarBus(Bus bus) {

@@ -1,3 +1,8 @@
+package main.java.com.unirutas.controllers;
+
+import main.java.com.unirutas.database.DatabaseManager;
+import main.java.com.unirutas.models.*;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -6,9 +11,9 @@ public class UsuarioController {
         // TODO: Implementar la lógica para añadirlo en la DB
         if (usuario != null) {
             usuario.marcarAlertaLeida(alerta);
-            System.out.println("Alerta marcada como leída por el usuario: " + usuario.getNombre());
+            System.out.println("main.java.com.unirutas.models.Alerta marcada como leída por el usuario: " + usuario.getNombre());
         } else {
-            System.out.println("Error: Usuario no encontrado.");
+            System.out.println("Error: main.java.com.unirutas.models.Usuario no encontrado.");
         }
     }
 
@@ -18,7 +23,7 @@ public class UsuarioController {
             estudiante.suscribirAServicio(servicio);
             System.out.println(estudiante.getNombre() + " se ha suscrito al servicio " + servicio);
         } else {
-            System.out.println("Error: Estudiante o servicio no encontrados.");
+            System.out.println("Error: main.java.com.unirutas.models.Estudiante o servicio no encontrados.");
         }
     }
 
@@ -38,7 +43,7 @@ public class UsuarioController {
 
                 if (rowsAffected > 0) {
                     dbManager.commitTransaction();
-                    System.out.println("Estudiante creado exitosamente.");
+                    System.out.println("main.java.com.unirutas.models.Estudiante creado exitosamente.");
                 } else {
                     dbManager.rollbackTransaction();
                     System.out.println("La creación del estudiante falló.");
@@ -55,7 +60,7 @@ public class UsuarioController {
 
                 if (rowsAffected > 0) {
                     dbManager.commitTransaction();
-                    System.out.println("Administrativo creado exitosamente.");
+                    System.out.println("main.java.com.unirutas.models.Administrativo creado exitosamente.");
                 } else {
                     dbManager.rollbackTransaction();
                     System.out.println("La creación del administrativo falló.");

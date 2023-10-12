@@ -1,3 +1,7 @@
+package main.java.com.unirutas.controllers;
+
+import main.java.com.unirutas.models.Usuario;
+
 public class AutenticacionController {
     public boolean autenticarUsuario(Usuario usuario, String nombreUsuario, String contrasena) {
         // Verificar si las credenciales coinciden con el usuario

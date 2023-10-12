@@ -1,3 +1,5 @@
+package main.java.com.unirutas.models;
+
 import java.util.Date;
 import java.util.List;
 
@@ -30,11 +32,11 @@ public class Alerta {
                 Estudiante estudiante = (Estudiante) usuario;
                 if (estudiante.estaSuscrito(servicio)) {
                     estudiante.recibirAlerta(this);
-                    System.out.println("Alerta enviada a " + estudiante.getNombre() + ": " + this.descripcion);
+                    System.out.println("main.java.com.unirutas.models.Alerta enviada a " + estudiante.getNombre() + ": " + this.descripcion);
                 }
             } else if (usuario instanceof Administrativo) {
                 usuario.recibirAlerta(this);
-                System.out.println("Alerta enviada a " + usuario.getNombre() + ": " + this.descripcion);
+                System.out.println("main.java.com.unirutas.models.Alerta enviada a " + usuario.getNombre() + ": " + this.descripcion);
             }
             else {
                 System.out.println("Error al enviar la alerta.");

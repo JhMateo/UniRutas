@@ -1,3 +1,5 @@
+package main.java.com.unirutas.models;
+
 public class Sentido {
     private String nombre;
     private Recorrido recorrido;

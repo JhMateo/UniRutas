@@ -1,3 +1,7 @@
+package main.java.com.unirutas.controllers;
+
+import main.java.com.unirutas.models.*;
+
 import java.util.List;
 
 public class ServicioController {
